@@ -10,20 +10,41 @@ namespace WebApi_TodoList.Controllers
         //TODO GET single TODO item
         //TODO implement CRUD (create, read, update, delete)
 
+        public static List<string> list = new List<string>
+        {
+            "handla mjölk",
+            "fixa grejer",
+            "göra saker"
+        };
+
+
         [Route("todos")]
         [HttpGet]
-        public List<string> getTodos(int? count)
+        public ActionResult<List<string>> GetTodos(int? count)
         {
-            int c = count ?? 3;
+            int c = count ?? list.Count;
 
-            return new List<string>
-            {
-                "handla mjölk",
-                "fixa grejer",
-                "göra saker"
-            }.Take(c)
-                .ToList();
+            if (c > 0)
+                return Ok(list.Take(c).ToList());
+
+            return NotFound();
+
         }
+
+
+
+        [Route("todos/{index:int}")]
+        [HttpGet]
+        public ActionResult<string> GetSingleTodo(int index)
+        {
+            if (list[index] != null)
+                return Ok(list[index]);
+
+            return NotFound();
+        }
+
+
+
     }
 
 }
