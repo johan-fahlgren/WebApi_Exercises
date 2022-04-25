@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_TodoList", "WebApi_TodoList\WebApi_TodoList.csproj", "{6479B2C3-8ABC-4C0E-8C2B-4D939CB043DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_TodoList", "WebApi_TodoList\WebApi_TodoList.csproj", "{6479B2C3-8ABC-4C0E-8C2B-4D939CB043DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

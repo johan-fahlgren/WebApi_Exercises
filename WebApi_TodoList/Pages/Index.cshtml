@@ -1,0 +1,65 @@
+﻿@page
+@model WebApi_TodoList.Pages.IndexModel
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+</head>
+
+<body>
+<header>
+  
+</header>
+
+<main role="main">
+    <h1>API VERSION CONTROL EXERCISE</h1>
+    <br/>
+    <h2 id="clock_v1"></h2>
+    <br/>
+    <h2 id="clock_v2"></h2>
+</main>
+
+<footer>
+</footer>
+</body>
+
+</html>
+
+
+
+
+<script type="module">
+    
+    async function updateClock()
+    {
+    const response = await fetch("/api/clock");
+    const clockTime = await response.json();
+
+    const clock_v1 = document.getElementById("clock_v1");
+    clock_v1.textContent = "GetTimeV1_1 = " + clockTime.time;
+    }
+    
+    
+
+    async function updateClock2()
+    {
+    const response_v2 = await fetch("/api/clock?api-version=1.2");
+    const clockTime_v2 = await response_v2.json();
+
+    const clock_v2 = document.getElementById("clock_v2");
+    clock_v2.textContent = "GetTimeV1_2 = " + clockTime_v2.hour + ":" + clockTime_v2.minute + ":" + clockTime_v2.second;
+    }
+
+    
+    setInterval(updateClock, 1000);
+    setInterval(updateClock2, 1000);
+    
+</script>
+
